@@ -43,16 +43,14 @@ const Review = () => {
     const [index, setIndex] = useState(0);
     const {id, name, job, image, text} = reviews[index];
 
-    const nextReview = () =>{
-        if(index < reviews.length-1){
-            setIndex(index+1);
-        }
-    }
-    const prevReview = () =>{
-        if(index > 0){
-            setIndex(index-1);
-        }
-    }
+    const nextReview = () => {
+    setIndex((prevIndex) => (prevIndex + 1) % reviews.length);
+    };
+
+    const prevReview = () => {
+    setIndex((prevIndex) => (prevIndex - 1 + reviews.length) % reviews.length);
+    };
+
     const randomReview = () =>{
         let randomIndex = Math.floor(Math.random() * reviews.length);
         while(randomIndex === index){
@@ -65,7 +63,7 @@ const Review = () => {
     <>
         <div className="review">
             <img className='person-img' src={image} alt={name} />
-            <h3 className='author' id={`author-${index}`}>{name}</h3>
+            <h3 className='author' id={`author-${id}`}>{name}</h3>
             <h4 className='job'>{job}</h4>
             <p className='info'>{text}</p>
 
