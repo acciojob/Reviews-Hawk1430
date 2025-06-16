@@ -64,8 +64,8 @@ const Review = () => {
   return (
     <>
         <div className="review">
-            <img className='person-img' src={image} />
-            <h3 className='author' id={`author-${id}`}>{name}</h3>
+            <img className='person-img' src={image} alt={name} />
+            <h3 className='author' id={`author-${index}`}>{name}</h3>
             <h4 className='job'>{job}</h4>
             <p className='info'>{text}</p>
 
